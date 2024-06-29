@@ -55,6 +55,6 @@ We had this running as a regular service on our website at [xdchain.xyz](https:/
 
 ---
 
-Good luck and I hope this script comes in useful for somebody whether it be how to identify and manage the steps to backup an XDC Geth Node, or alternately how to uase log-based (semi)-dynamic access gating to webserver resources.
+Good luck and I hope this script comes in useful for somebody whether it be how to identify and manage the steps to backup an XDC Geth Node, or alternately how to use log-based (semi)-dynamic access gating to webserver resources.
 
 - @s4njk4n
