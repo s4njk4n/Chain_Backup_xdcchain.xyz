@@ -1,0 +1,65 @@
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+	root /var/www/html;
+
+	index index.html index.htm index.nginx-debian.html;
+
+#	server_name _;
+
+	location / {
+	}
+
+}
+
+server {
+
+	root /var/www/html;
+
+	index index.html index.htm index.nginx-debian.html;
+
+        server_name xdcchain.xyz www.xdcchain.xyz; # managed by Certbot
+
+	location / {
+	}
+
+        listen [::]:443 ssl ipv6only=on; # managed by Certbot
+        listen 443 ssl; # managed by Certbot
+        ssl_certificate /etc/letsencrypt/live/xdcchain.xyz/fullchain.pem; # managed by Certbot
+        ssl_certificate_key /etc/letsencrypt/live/xdcchain.xyz/privkey.pem; # managed by Certbot
+        include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+        ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+        location /snapshot {
+
+            satisfy all;
+
+            #Add-new-IPs-here
+
+            allow 1.2.3.4;
+            deny all;
+
+            auth_basic "Restricted Access";
+            auth_basic_user_file /etc/nginx/.htpasswd;
+
+        }
+
+}
+
+server {
+
+        if ($host = www.xdcchain.xyz) {
+            return 301 https://$host$request_uri;
+        } # managed by Certbot
+
+        if ($host = xdcchain.xyz) {
+            return 301 https://$host$request_uri;
+        } # managed by Certbot
+
+        listen 80 ;
+	listen [::]:80 ;
+        server_name xdcchain.xyz www.xdcchain.xyz;
+        return 404; # managed by Certbot
+
+}
