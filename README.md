@@ -3,6 +3,7 @@ This repo shows how to regularly take an automated snapshot of the chain databas
 ## General Points:
 - It is based on there being 2 servers
 - We assume you have set up ssh-key authentication for Server 1 to be able to access Server 2
+- For access-gating in this instance there are NO personal or private details on the webserver at all so we don't care too much about storing the user_credentials.csv file in plain text. Each username/password combination can almost be considered as a unique access token that has just been split into 2 pieces
 
 ## Server 1 - XDC_Client_Server
 
