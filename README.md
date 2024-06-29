@@ -1,5 +1,7 @@
 This repo shows how to regularly take an automated snapshot of the chain database from the XDC Geth Client and move it to a webserver with (semi)-dynamic access gating
 
+We had this running as a regular service on our website at xdchain.xyz but have noted there is no real demand for provision of a rapid snapshot so will shortly decommission the server and are releasing this information into the wild :) We've already done the legwork so if you want to learn how to backup your own node's chain database or learn how to create a semi-dynamic access gated webserver please read on!
+
 ## General Points:
 - It is based on there being 2 servers
 - We assume you have set up ssh-key authentication for Server 1 to be able to access Server 2
