@@ -35,7 +35,7 @@ We had this running as a regular service on our website at [xdchain.xyz](https:/
 - /etc/nginx/sites-available/default contains Nginx server blocks for default server, SSL server, and http redirect to https server
 - SSL server block contains SSL information and location blocks. The location block for the /snapshot directory is restricted by Nginx IP address ACL AND gated by basic authentication. The "#Add-new-IPs-here" line is used by our scripts to locate whereabouts in the file to insert new IP addresses that should be authorised to access the /snapshot location.
 - /var/www/html/ is the webserver root for Nginx
-- /var/www/html/snapshot/ on the VPS corresponds to the /snaphot location referred to within the Nginx webserver configuration
+- /var/www/html/snapshot/ on the VPS corresponds to the /snaphot location referred to within the Nginx webserver configuration. It is the location on Server 2 that Server 1 will scp new snapshots to
 
 ### In the Chain_Backup_DL_Server_Control directory:
 - The "users" directory contains a plain text file for each username. The filename is the username. Within the file, the first line is the username, the second lines shows how many IP addresses that username is authorised to access the snapshot from, and the lines below that show any IP addresses that have been used and authorised so far by that user.
